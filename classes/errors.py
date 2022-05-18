@@ -1,0 +1,2 @@
+class CpfValidationError(Exception):
+    pass
