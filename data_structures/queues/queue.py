@@ -33,6 +33,11 @@ class Queue:
         # esse método remove o primeiro elemento da fila
         if self.length == 0: # caso a lista esteja vazia, não prosseguimos
             return None
+        if self.length == 1:
+            self.first = None
+            self.last = None
+            return True
+
         first = self.first # armazenamos a referencia do primeiro elemento
         self.first = first.before # mudamos a referencia do primeiro elemento para o elemento que antes er o segundo
         first.before = None # removemos definitivamente o elemento da fila
@@ -55,8 +60,10 @@ class Queue:
 
 
 queue = Queue()
-queue.enqueue(0)
+# queue.enqueue(0)
+queue.enqueue(1)
 
-# queue.dequeue()
-
+queue.dequeue()
+print(queue.first)
+print(queue.last)
 queue.print_queue()
